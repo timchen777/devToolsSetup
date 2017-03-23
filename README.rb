@@ -1,9 +1,9 @@
 ================== Development Environment setup ======================
---------------------------- Setup ubuntu ------------------------------
+--------------------------- 1. Setup ubuntu ------------------------------
 
 --------------------------- run c code in ubuntu ----------------------
 REF: http://www.akira.ruc.dk/~keld/teaching/CAN_e14/Readings/How%20to%20Compile%20and%20Run%20a%20C%20Program%20on%20Ubuntu%20Linux.pdf
----------------------------- Setup Brackets -------------------------------------
+----------------------------2.  Setup Brackets -------------------------------------
 http://askubuntu.com/questions/762855/how-to-install-brackets-io-from-the-command-line
 sudo add-apt-repository ppa:webupd8team/brackets
 sudo apt-get update
@@ -16,7 +16,34 @@ To launch in a certain directory, first cd to that directory, like this:
 cd /path/to/folder
 Then launch it with the same command:
 sudo -i brackets
-------------------------- 1. Rails on Linux -----------------------
+
+========================== 3: Setup Visual Studio code on Linux ====================
+REF: https://code.visualstudio.com/docs/setup/linux
+Running VS Code on Linux
+Installation
+Debian and Ubuntu based distributions
+The easiest way to install for Debian/Ubuntu based distributions is to download 
+nd install the .deb package (64-bit) either through the graphical software center i
+it's available or through the command line with:
+
+$ sudo dpkg -i <file>.deb   <file>== code_1.10.2-1488982317_i386.deb
+$ sudo apt-get install -f # Install dependencies
+Installing the .deb package will automatically install the apt repository and 
+signing key to enable auto-updating using the regular system mechanism. 
+Note that 32-bit and .tar.gz binaries are also available on the download page.
+
+The repository and key can also be installed manually with the following script:
+
+$curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+$sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
+$sudo sh -c 'echo "deb [arch=amd64] http://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
+
+Then update the package cache and install the package using:
+
+$sudo apt-get update
+$sudo apt-get install code # or code-insiders
+
+------------------------- 4. Rails on Linux -----------------------
 REF: https://github.com/yuyueugene84/ntu_ror_training_course/blob/master/intallation.md
 #Ruby on Rails Linux 安裝教學
 
@@ -110,29 +137,3 @@ rails server
 localhost:3000
 若成功應該出現 You are on Rails! 畫面： 
 恭喜你完成第一個 Rails app！！！
-========================== 2: Setup Visual Studio code on Linux ====================
-REF: https://code.visualstudio.com/docs/setup/linux
-Running VS Code on Linux
-Installation
-Debian and Ubuntu based distributions
-The easiest way to install for Debian/Ubuntu based distributions is to download 
-nd install the .deb package (64-bit) either through the graphical software center i
-it's available or through the command line with:
-
-$ sudo dpkg -i <file>.deb   <file>== code_1.10.2-1488982317_i386.deb
-$ sudo apt-get install -f # Install dependencies
-Installing the .deb package will automatically install the apt repository and 
-signing key to enable auto-updating using the regular system mechanism. 
-Note that 32-bit and .tar.gz binaries are also available on the download page.
-
-The repository and key can also be installed manually with the following script:
-
-$curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-$sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
-$sudo sh -c 'echo "deb [arch=amd64] http://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
-
-Then update the package cache and install the package using:
-
-$sudo apt-get update
-$sudo apt-get install code # or code-insiders
-
